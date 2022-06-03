@@ -1,0 +1,29 @@
+﻿@using System.Security.Claims
+@model ViewModels;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<label>Hi there @User.Identity.Name</label><br><br>@*@User.Identity.Name*@
+
+@if(@Model.preferenceViewModel.SteamSelect == 1)
+{
+    <label>PlatformName: @Model.steamGamePlatform.PlatformName</label><br><br>
+
+    @if(@Model.steamPreferenceViewModel.PlatformUserNameSelect == 1)
+    {
+        <label>PlatformUsername: @Model.steamGamePlatform.steamPlayerData.personaname</label><br><br>
+    }
+    @if(@Model.steamPreferenceViewModel.GamesSelect == 1)
+    {
+        <label>Amount of Games: @Model.steamGamePlatform.steamOwnedGamesData.game_count</label><br><br>
+    }
+}
+
+<a asp-controller="User" asp-action="UpdatePreference">
+    <input type="button" value="Edit Preference" />
+</a>
+
+<a asp-controller="User" asp-action="UpdateSteamPreference">
+    <input type="button" value="Edit SteamPreference" />
+</a>

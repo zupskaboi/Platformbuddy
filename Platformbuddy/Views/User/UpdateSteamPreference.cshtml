@@ -1,0 +1,40 @@
+﻿@model ViewModels 
+@{
+    ViewData["Title"] = "SteamPreference Page";
+}
+<form id="editSteamPreferenceForm">
+    <label for="platformusernameInput">SteamUsername: </label>
+    <input type="checkbox" id="platformusernameInput" value="@Model.steamPreferenceViewModel.PlatformUserNameSelect"/><br><br>
+    <label for="gamesselectInput">SteamGames: </label>
+    <input type="checkbox" id="gamesselectInput" value="@Model.steamPreferenceViewModel.GamesSelect"/><br><br>
+
+    <input type="submit" value="editSteamPreference">
+</form>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+
+<script type="text/javascript">
+    $('#platformusernameInput').on('change', function(){
+        this.value = this.checked ? 1 : 0;
+        }).change();
+    $('#gamesselectInput').on('change', function(){
+        this.value = this.checked ? 1 : 0;
+        }).change();
+    $('#editSteamPreferenceForm').submit(e => {
+        e.preventDefault();
+
+        let data = {
+            platformusernameselect: $('#platformusernameInput').val(),
+            gamesselect: $('#gamesselectInput').val()
+        }
+
+        let domain = window.location.protocol + "//" + window.location.host + "/";
+
+        $.post(domain + "User/UpdateSteamPreference", data)
+            .done(() => { window.location.href = domain + "User/Index"} )
+            .fail(xhr => { 
+                alert(xhr.responseMessage) 
+            })
+    })
+</script>
