@@ -10,13 +10,6 @@ namespace BusinessLayer
 {
     public class SteamPreferenceContainer : ISteamPreferenceContainer
     {
-        private ISteamPreferenceContainer dal;
-
-        public SteamPreferenceContainer(ISteamPreferenceContainer context)
-        {
-            this.dal = context;
-        }
-
         public void GetSteamApiData(SteamGamePlatform gamePlatform)
         {
             gamePlatform.SetSteamApiData();

@@ -7,11 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="SteamPreferenceContainer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ApiWrapper\ApiWrapper.csproj" />
     <ProjectReference Include="..\InterfaceLayer\InterfaceLayer.csproj" />
   </ItemGroup>
 

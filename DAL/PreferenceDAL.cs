@@ -1,5 +1,4 @@
-﻿using ApiWrapper;
-using InterfaceLayer;
+﻿using InterfaceLayer;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -44,11 +43,6 @@ namespace DAL
             cn.Close();
 
             return preferenceDTOs;
-        }
-
-        public void GetSteamApiData(SteamGamePlatform gamePlatform)
-        {
-            gamePlatform.SetSteamApiData();
         }
 
         public int UpdatePreference(PreferenceDTO preferenceDTO)

@@ -1,5 +1,4 @@
 ﻿using ApiWrapper;
-using BusinessLayer;
 
 namespace Platformbuddy.Models
 {
